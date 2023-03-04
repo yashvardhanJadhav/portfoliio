@@ -1,0 +1,707 @@
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Portfolio</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://kit.fontawesome.com/7ca8de59a0.js" crossorigin="anonymous"></script>
+        <!-- google fonts -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono&display=swap" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+    </head>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #navbar {
+            position: fixed;
+            /* Make it stick/fixed */
+            /* Hide the navbar 50 px outside of the top view */
+            width: 100%;
+            /* Full width */
+            transition: top 0.3s;
+        }
+
+        .navBlur {
+            /* opacity: 90%; */
+            /* background-color: #0B192E ; */
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(50px);
+        }
+
+        .fa-skull,
+        .fa-github,
+        .fa-up-right-from-square {
+            color: #65FFDB;
+        }
+
+        .nav-links,
+        .toggler {
+            color: #CCD6F6;
+            margin: auto;
+            margin-left: 2rem;
+            font-family: 'Fragment Mono', monospace;
+        }
+
+        .toggler {
+            color: #5AE7C8;
+        }
+
+        .links-container {
+            display: inline-block;
+            width: 1.25rem;
+            position: absolute;
+            bottom: -70px;
+        }
+
+        .links-items {
+
+            margin-top: 2rem;
+        }
+
+        .vl {
+            border-left: 2px solid #949FBF;
+            height: 100px;
+            margin-left: 8px;
+            margin-top: 2rem;
+        }
+
+        .vr {
+            border-bottom: 1px solid #8892B0;
+            width: 390px;
+        }
+
+        .vr2 {
+            border-bottom: 1px solid #8892B0;
+            width: 200px;
+        }
+
+        .test2 {
+            display: inline-block;
+            writing-mode: vertical-rl;
+            font-family: 'Fragment Mono', monospace;
+            font-size: small;
+            color: #949FBF;
+        }
+
+        .about-description {
+            flex: 60%;
+        }
+
+        .about-image {
+            flex: 40%;
+        }
+
+        @media screen and (max-width: 600px) {
+            .about-description {
+                flex: 100%;
+            }
+
+            .about-image {
+                flex: 100%;
+            }
+
+            .flexwrap {
+                flex-wrap: wrap;
+            }
+
+            .links-container {
+                display: none;
+            }
+
+            .vl {
+                width: 50px;
+            }
+
+            .vr {
+                width: 150px;
+            }
+
+            #vrdisp {
+                display: none;
+            }
+        }
+
+        @media screen and (min-width: 900px) {
+            .toggler {
+                display: none;
+            }
+
+            .footer-links-container {
+                display: none;
+            }
+        }
+
+
+        @media screen and (max-width: 900px) {
+            .nav-links {
+                display: none;
+            }
+        }
+
+        .overlay {
+            position: absolute;
+            height: 300px;
+            width: 300px;
+            opacity: 0.3;
+            transition: .5s ease;
+            background-color: #61EBCF;
+
+        }
+
+        .about-image:hover .overlay {
+            opacity: 0;
+        }
+
+        .overlay1 {
+            width: auto;
+            position: absolute;
+            opacity: 0.3;
+            transition: .5s ease;
+            background-color: #61EBCF;
+
+        }
+
+        .image-container:hover .overlay1 {
+            opacity: 0;
+        }
+
+        .nav-links1 {
+            color: #CCD6F6;
+            font-family: 'Fragment Mono', monospace;
+        }
+    </style>
+
+
+    <body class="bg-[#0B192E] relative">
+        <header class="navBlur fixed top-0 w-full  shadow-lg" id="navbar">
+            <div class="nav flex sm:m-6 my-6 justify-between items-center">
+                <div class="logo">
+                    <i class="fa-solid fa-2x fa-skull ml-8"></i>
+                </div>
+                <div class="flex flex-row flex-wrap">
+                    <div class="nav-links"><a href="#about"><span class="text-[#65FFDB] mr-2">01.</span>About</a></div>
+                    <div class="nav-links"><a href="#skills"><span class="text-[#65FFDB] mr-2">02.</span>Experience</a>
+                    </div>
+                    <div class="nav-links"><a href="#projects"><span class="text-[#65FFDB] mr-2">03.</span>Projects</a>
+                    </div>
+                    <div class="nav-links"><a href="#contact"><span class="text-[#65FFDB] mr-2">04.</span>Contact</a></div>
+                    <a href="yashvardhan jadhav resume.pdf" download>
+                        <button
+                            class="nav-links mr-8 bg-[#0B192E] hover:bg-[#1D4652] text-[#65FFDB] font-medium py-2 px-8 rounded-md border-2 border-[#65FFDB]">
+                            Resume
+                        </button>
+                    </a>
+                    <button type="button" class="toggler mr-8" data-modal-target="defaultModal"
+                        data-modal-toggle="defaultModal"><i class="fa-solid fa-2x fa-bars"></i></button>
+                </div>
+            </div>
+
+        </header>
+
+
+
+
+
+        <!-- Main modal -->
+        <div id="defaultModal" tabindex="-1" aria-hidden="true"
+            class="fixed top-0 right-0 z-[1055] hidden h-full w-[70vw] overflow-y-auto outline-none ">
+            <div class="relative w-full h-full  max-w-2xl bg-[#102241] ">
+                <!-- Modal content -->
+                <!-- Modal header -->
+                <div class="flex items-start justify-between p-4  rounded-t ">
+
+                    <button type="button"
+                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                        data-modal-hide="defaultModal">
+                        <svg aria-hidden="true" class="mt-3 mr-1 w-10 h-10" fill="#65FFDB" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="relative flex flex-col w-full h-[85vh] items-center justify-center p-4">
+                    <div class="nav-links1 p-4 text-center text-lg"><a href="#about" data-modal-hide="defaultModal">
+                            <div class="text-[#65FFDB] text-center text-sm">01.</div>About
+                        </a></div>
+                    <div class="nav-links1 p-4 text-center text-lg"><a href="#skills" data-modal-hide="defaultModal">
+                            <div class="text-[#65FFDB] text-sm">02.</div>Skills
+                        </a></div>
+                    <div class="nav-links1 p-4 text-center text-lg"><a href="#projects" data-modal-hide="defaultModal">
+                            <div class="text-[#65FFDB] text-sm">03.</div>Projects
+                        </a></div>
+                    <div class="nav-links1 p-4 text-center text-lg"><a href="#contact" data-modal-hide="defaultModal">
+                            <div class="text-[#65FFDB] text-sm">04.</div>Contact
+                        </a></div>
+                    <a href="yashvardhan jadhav resume.pdf" download>
+                        <button
+                            class="nav-links1 m-8 bg-[#0B192E] hover:bg-[#1D4652] text-[#65FFDB] font-medium py-2 px-8 rounded-md border-2 border-[#65FFDB] text-xl">
+                            Resume
+                        </button>
+                    </a>
+                </div>
+                <!-- Modal footer -->
+
+            </div>
+        </div>
+
+
+        <!-- side links container -->
+        <div class="links-container fixed m-16">
+
+            <a href="https://github.com/yashvardhanJadhav" target=”_blank”><svg class="links-items"
+                    xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="#949FBF"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github">
+                    <title>GitHub</title>
+                    <path
+                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                    </path>
+                </svg>
+            </a>
+            <a href="https://www.instagram.com/yashvardhan_jadhav/?hl=en" target=”_blank”>
+                <svg class="links-items" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none"
+                    stroke="#949FBF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-instagram">
+                    <title>Instagram</title>
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+            </a>
+            <a href="https://twitter.com/yashvardhann743" target=”_blank”>
+                <svg class="links-items" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none"
+                    stroke="#949FBF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-twitter">
+                    <title>Twitter</title>
+                    <path
+                        d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                    </path>
+                </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/yashvardhan-jadhav-319621200/" target=”_blank”><svg class="links-items"
+                    xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="#949FBF"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin">
+                    <title>LinkedIn</title>
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+            </a>
+            <div class="vl"></div>
+        </div>
+        <div class="links-container fixed m-16 right-0">
+            <a href="mailto: yashvardhann743@gmail.com">
+                <p class="test2">yashvardhann743@gmail.com</p>
+            </a>
+            <div class="vl"></div>
+        </div>
+
+
+
+        <!-- Hero of the page -->
+        <div class="container mx-auto hero sm:pl-60 sm:pr-60 pr-6 pl-6 py-[30vh] sm:pb-[10vh] sm:pt-[30vh]">
+            <div class="hero-Subheading sm:text-2xl text-xl mb-4 text-[#58E5C6]">Hi, my name is</div>
+            <div class="hero-heading sm:text-7xl text-4xl first-letter: text-[#CCD7F7] font-bold sm:mb-4">Yashvardhan Jadhav
+            </div>
+            <div class="hero-heading text-[#8892B0] sm:text-7xl text-4xl font-bold mb-4">I build things for Web.</div>
+            <div class="hero-description text-[#8892B0]">I’m a software engineer specializing in building (and occasionally
+                designing)<br> exceptional digital experiences. Currently, I’m focused on building accessible,<br>
+                human-centered products at Upstatement.</div>
+            <a href="yashvardhan jadhav resume.pdf" download>
+                <button
+                    class="mt-8 bg-[#0B192E] hover:bg-[#1D4652] text-[#65FFDB] font-semibold py-2 px-8 rounded-md border-2 border-[#65FFDB]">
+                    Resume
+                </button>
+            </a>
+        </div>
+        <!-- about  -->
+        <div class="container mx-auto about sm:px-60 py-32 px-8" id="about">
+            <div class="about-heading text-3xl font-extrabold text-[#CCD7F7] inline-block">About Me</div>
+            <div class="vr inline-block mb-2 ml-4 "></div>
+            <div class=" flex flex-row flexwrap about-container justify-between">
+                <div class="flex about-description mt-6 mb-6 mr-6  text-[#8892B0] ">
+                    I am a student of Medi-caps University ,Indore with a major in Computer Science. I am passionate about
+                    pursuing my major in Information Technology and Computer Science. My goal is to get a job in the
+                    Information Technology field after graduating. I enjoy solving technical problems, researching and
+                    developing new technologies, designing software applications for different platforms. I am also
+                    interested in pursuing degree programs in Information Systems Management, Computer Engineering, or
+                    Computer Science. I enjoy meeting people and working with them in a team environment.
+                </div>
+                <div class="flex justify-center about-image sm:ml-24 sm:items-end">
+
+                    <img class="border-2 border-[#65FFDB] rounded-lg" src="yashvardhan.jfif" width="300px" alt="">
+                    <div class="overlay rounded-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROJECTS  -->
+        <div class="container mx-auto projects sm:pl-60 sm:pr-60 px-6 pt-24" id="projects">
+            <div class="projects-heading text-3xl font-extrabold text-[#CCD7F7] inline-block">Some Things I’ve Built</div>
+            <div class="vr inline-block mb-2 sm:ml-4 "></div>
+
+
+            <!-- PROJECT 1 - CryptoTracker -->
+            <section class="text-gray-600 body-font">
+                <div class="container py-24 mx-auto flex flex-col">
+                    <div>
+                        <div class="rounded-lg sm:h-72 overflow-hidden">
+                            <img class="projectImg" alt="content" class="object-cover object-center h-full w-full"
+                                src="CryptoTracker.png">
+                        </div>
+                        <div class="flex flex-col sm:flex-row mt-4">
+                            <div class="sm:w-1/3 text-center sm:pr-8">
+
+                                <div class="flex flex-col items-center text-center justify-center">
+                                    <h2 class="title-font sm:mt-4 text-[#CCD7F7] text-3xl font-bold">CryptoTracker</h2>
+                                    <div class="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
+                                    <p class="text-[#8892B0]">Dec 2021 - Jan 2022</p>
+                                </div>
+                                <!-- <div class="projects-links flex justify-center mt-4">
+                                                    <div class="links-web"><i class="fa-solid fa-1x fa-up-right-from-square mr-4"></i></div>
+                                                    <div class="links-git"><i class="fa-brands fa-1x fa-github"></i></div>
+                                                </div> -->
+                                <div class="badges">
+                                    <span
+                                        class="inline-block whitespace-nowrap rounded-[0.27rem] bg-[#65FFDB] px-[0.65em] pt-[0.35em] pb-[0.25em] text-center align-baseline text-[0.75em] font-bold leading-none text-[#0B192E]">
+                                        React JS
+                                    </span>
+                                    <span
+                                        class="inline-block whitespace-nowrap rounded-[0.27rem] bg-[#65FFDB] px-[0.65em] pt-[0.35em] pb-[0.25em] text-center align-baseline text-[0.75em] font-bold leading-none text-[#0B192E]">
+                                        Tailwind CSS
+                                    </span>
+                                    <span
+                                        class="inline-block whitespace-nowrap rounded-[0.27rem] bg-[#65FFDB] px-[0.65em] pt-[0.35em] pb-[0.25em] text-center align-baseline text-[0.75em] font-bold leading-none text-[#0B192E]">
+                                        CoinGecko API
+                                    </span>
+                                    <span
+                                        class="inline-block whitespace-nowrap rounded-[0.27rem] bg-[#65FFDB] px-[0.65em] pt-[0.35em] pb-[0.25em] text-center align-baseline text-[0.75em] font-bold leading-none text-[#0B192E]">
+                                        Javascript
+                                    </span>
+                                </div>
+                            </div>
+                            <div
+                                class="sm:w-2/3 sm:pl-8 sm:border-l mt-2 border-gray-200 sm:border-t-0 border-t sm:mt-0 text-center sm:text-left text-[#8892B0]">
+                                <div class="text-lg  text-white">CryptoTracker web application using API</div>
+                                <p class="leading-relaxed mt-2"></p>
+                                ⭐ CryptoTracker is a web application which displays crypto currency detailed
+                                analysis.
+                                <br>⭐ Technology required - React js, Javascript, HTML, CSS,Tailwind css.
+                                <br>⭐ It takes the data from API.
+
+                                <br>⭐ It shows the live detailed analysis.
+                                <br>⭐ It shows the detailed analysis of all coin.
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- PROJECT 2 CONFERENCE -->
+            <section class="text-gray-600 body-font">
+                <div class="container py-24 mx-auto flex flex-col">
+                    <div>
+                        <div class="rounded-lg sm:h-72 overflow-hidden">
+                            <img class="projectImg" alt="content" class="object-cover object-center h-full w-full"
+                                src="Conference.png">
+                        </div>
+                        <div class="flex flex-col sm:flex-row mt-4">
+                            <div class="sm:w-1/3 text-center sm:pr-8">
+
+                                <div class="flex flex-col items-center text-center justify-center">
+                                    <h2 class="title-font sm:mt-4 text-[#CCD7F7] text-3xl font-bold">IEEE Conference</h2>
+                                    <div class="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
+                                    <p class="text-[#8892B0]">Dec 2021 - Jan 2022</p>
+                                </div>
+                                <!-- <div class="projects-links flex justify-center mt-4">
+                                                    <div class="links-web"><i class="fa-solid fa-1x fa-up-right-from-square mr-4"></i></div>
+                                                    <div class="links-git"><i class="fa-brands fa-1x fa-github"></i></div>
+                                                </div> -->
+                                <div class="badges">
+                                    <span
+                                        class="inline-block whitespace-nowrap rounded-[0.27rem] bg-[#65FFDB] px-[0.65em] pt-[0.35em] pb-[0.25em] text-center align-baseline text-[0.75em] font-bold leading-none text-[#0B192E]">
+                                        React JS
+                                    </span>
+                                    <span
+                                        class="inline-block whitespace-nowrap rounded-[0.27rem] bg-[#65FFDB] px-[0.65em] pt-[0.35em] pb-[0.25em] text-center align-baseline text-[0.75em] font-bold leading-none text-[#0B192E]">
+                                        Tailwind CSS
+                                    </span>
+                                    <span
+                                        class="inline-block whitespace-nowrap rounded-[0.27rem] bg-[#65FFDB] px-[0.65em] pt-[0.35em] pb-[0.25em] text-center align-baseline text-[0.75em] font-bold leading-none text-[#0B192E]">
+                                        Javascript
+                                    </span>
+                                </div>
+                            </div>
+                            <div
+                                class="sm:w-2/3 sm:pl-8 sm:border-l border-gray-200 mt-2 sm:border-t-0 border-t sm:mt-0 text-center sm:text-left text-[#8892B0]">
+                                <div class="text-lg  text-white">2nd IEEE International Conference on Computer
+                                    Communication and Control (IC4-2023)</div>
+                                <p class="leading-relaxed mt-2"></p>
+                                2nd IEEE International Conference on Computer and Communication and Control (IC4-2023) is a
+                                forum for presenting new advances and research results in the fields of Intelligent
+                                Computing. The conference will bring together leading researchers, engineers and scientists
+                                in the domain of interest from around the world. The scope of the conference covers all
+                                theoretical and practical aspects of the Intelligent Computing.
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- PROJECT 3 - NEWSHUB -->
+            <section class="text-gray-600 body-font">
+                <div class="container py-24 mx-auto flex flex-col">
+                    <div>
+                        <div class="rounded-lg sm:h-72 overflow-hidden">
+                            <img class="projectImg" alt="content" class="object-cover object-center h-full w-full"
+                                src="NewsHub.png">
+                        </div>
+                        <div class="flex flex-col sm:flex-row mt-4">
+                            <div class="sm:w-1/3 text-center sm:pr-8">
+
+                                <div class="flex flex-col items-center text-center justify-center">
+                                    <h2 class="title-font sm:mt-4 text-[#CCD7F7] text-3xl font-bold">NewsHub</h2>
+                                    <div class="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
+                                    <p class="text-[#8892B0]">Dec 2021 - Jan 2022</p>
+                                </div>
+                                <!-- <div class="projects-links flex justify-center mt-4">
+                                                    <div class="links-web"><i class="fa-solid fa-1x fa-up-right-from-square mr-4"></i></div>
+                                                    <div class="links-git"><i class="fa-brands fa-1x fa-github"></i></div>
+                                                </div> -->
+                                <div class="badges">
+                                    <span
+                                        class="inline-block whitespace-nowrap rounded-[0.27rem] bg-[#65FFDB] px-[0.65em] pt-[0.35em] pb-[0.25em] text-center align-baseline text-[0.75em] font-bold leading-none text-[#0B192E]">
+                                        Javascript
+                                    </span>
+                                    <span
+                                        class="inline-block whitespace-nowrap rounded-[0.27rem] bg-[#65FFDB] px-[0.65em] pt-[0.35em] pb-[0.25em] text-center align-baseline text-[0.75em] font-bold leading-none text-[#0B192E]">
+                                        Bootstrap
+                                    </span>
+                                    <span
+                                        class="inline-block whitespace-nowrap rounded-[0.27rem] bg-[#65FFDB] px-[0.65em] pt-[0.35em] pb-[0.25em] text-center align-baseline text-[0.75em] font-bold leading-none text-[#0B192E]">
+                                        News API
+                                    </span>
+                                </div>
+                            </div>
+                            <div
+                                class="sm:w-2/3 sm:pl-8 sm:border-l mt-2 border-gray-200 sm:border-t-0 border-t sm:mt-0 text-center sm:text-left text-[#8892B0]">
+                                <div class="text-lg  text-white">News Wesite using API</div>
+                                <p class="leading-relaxed mt-2">
+                                    ⭐ News Hub is a web application which displays news all over the
+                                    world.
+                                    <br>⭐ It takes the data from api called News api.
+                                    <br>⭐ News Hub has its own chat bot which recommend you latest topic
+                                    and help you to understand the UI.
+                                    <br>⭐ News Hub has its own searching facility for any topic.
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- PROJECT 4 - YOUTUBEDOWNLOADER -->
+            <section class="text-gray-600 body-font">
+                <div class="container py-24 mx-auto flex flex-col">
+                    <div>
+                        <div class="rounded-lg sm:h-72 overflow-hidden">
+                            <img class="projectImg" alt="content" class="object-cover object-center h-full w-full"
+                                src="YoutubeVideoDownloader.png">
+                        </div>
+                        <div class="flex flex-col sm:flex-row mt-4">
+                            <div class="sm:w-1/3 text-center sm:pr-8">
+
+                                <div class="flex flex-col items-center text-center justify-center">
+                                    <h2 class="title-font sm:mt-4 text-[#CCD7F7] text-3xl font-bold">YoutubeDownloader</h2>
+                                    <div class="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
+                                    <p class="text-[#8892B0]">Dec 2021 - Jan 2022</p>
+                                </div>
+                                <!-- <div class="projects-links flex justify-center mt-4">
+                                                    <div class="links-web"><i class="fa-solid fa-1x fa-up-right-from-square mr-4"></i></div>
+                                                    <div class="links-git"><i class="fa-brands fa-1x fa-github"></i></div>
+                                                </div> -->
+                                <div class="badges">
+                                    <span
+                                        class="inline-block whitespace-nowrap rounded-[0.27rem] bg-[#65FFDB] px-[0.65em] pt-[0.35em] pb-[0.25em] text-center align-baseline text-[0.75em] font-bold leading-none text-[#0B192E]">
+                                        React JS
+                                    </span>
+                                    <span
+                                        class="inline-block whitespace-nowrap rounded-[0.27rem] bg-[#65FFDB] px-[0.65em] pt-[0.35em] pb-[0.25em] text-center align-baseline text-[0.75em] font-bold leading-none text-[#0B192E]">
+                                        Tailwind CSS
+                                    </span>
+                                    <span
+                                        class="inline-block whitespace-nowrap rounded-[0.27rem] bg-[#65FFDB] px-[0.65em] pt-[0.35em] pb-[0.25em] text-center align-baseline text-[0.75em] font-bold leading-none text-[#0B192E]">
+                                        Javascript
+                                    </span>
+                                    <span
+                                        class="inline-block whitespace-nowrap rounded-[0.27rem] bg-[#65FFDB] px-[0.65em] pt-[0.35em] pb-[0.25em] text-center align-baseline text-[0.75em] font-bold leading-none text-[#0B192E]">
+                                        API
+                                    </span>
+                                </div>
+                            </div>
+                            <div
+                                class="sm:w-2/3 sm:pl-8 sm:border-l mt-2 border-gray-200 sm:border-t-0 border-t sm:mt-0 text-center sm:text-left text-[#8892B0]">
+                                <div class="text-lg  text-white">Youtube video downloader</div>
+                                <p class="leading-relaxed mt-2">
+                                    ⭐ It is youtube video's audio video downloader web application.
+                                    <br>⭐ It can downlaod audio as well as video.
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- SKILLS -->
+        <div class="container mx-auto skills sm:pl-60 sm:pr-60  py-24 px-6" id="skills">
+            <div class="projects-heading text-3xl font-extrabold text-[#CCD7F7] inline-block">SOME TECHNOLOGIES I'VE WORKED
+                WITH</div>
+            <div class="vr2 inline-block mb-2 sm:ml-4 "></div>
+            <section class="text-gray-600 body-font">
+                <div class="container px-5 sm:py-18  py-8 mx-auto">
+                    <div class="flex flex-wrap -m-4 justify-center">
+
+                        <div class="lg:w-1/4 md:w-1/2 p-4 sm:w-full">
+                            <a class="block relative sm:h-48 h-20 rounded overflow-hidden">
+                                <img alt="ecommerce" class="object-cover object-center w-auto h-full block" src="html5.png">
+                            </a>
+                        </div>
+                        <div class="lg:w-1/4 md:w-1/2 p-4 sm:w-full">
+                            <a class="block relative sm:h-48 h-20 rounded overflow-hidden">
+                                <img alt="ecommerce" class="object-cover object-center w-auto h-full block" src="css 3.png">
+                            </a>
+                        </div>
+                        <div class="lg:w-1/4 md:w-1/2 p-4 sm:w-full">
+                            <a class="block relative sm:h-48 h-20 rounded overflow-hidden">
+                                <img alt="ecommerce" class="object-cover object-center w-auto h-full block"
+                                    src="javascript.png">
+                            </a>
+                        </div>
+                        <div class="lg:w-1/4 md:w-1/2 p-4 sm:w-full">
+                            <a class="block relative sm:h-48 h-20 rounded overflow-hidden">
+                                <img alt="ecommerce" class="object-cover object-center w-auto h-full block" src="react.png">
+                            </a>
+                        </div>
+                        <div class="lg:w-1/4 md:w-1/2 p-4 sm:w-full">
+                            <a class="block relative sm:h-48 h-20 rounded overflow-hidden">
+                                <img alt="ecommerce" class="object-cover object-center w-90 h-full block"
+                                    src="bootstrap.png">
+                            </a>
+                        </div>
+                        <div class="lg:w-1/4 md:w-1/2 p-4 sm:w-full">
+                            <a class="block relative sm:h-48 h-20 rounded overflow-hidden">
+                                <img alt="ecommerce" class="object-cover object-center w-auto h-full block"
+                                    src="tailwind css.png">
+                            </a>
+                        </div>
+                        <div class="lg:w-1/4 md:w-1/2 p-4 sm:w-full">
+                            <a class="block relative sm:h-48 h-20 rounded overflow-hidden">
+                                <img alt="ecommerce" class="object-cover object-center w-auto h-full block"
+                                    src="node js.png">
+                            </a>
+                        </div>
+                        <div class="lg:w-1/4 md:w-1/2 p-4 sm:w-full">
+                            <a class="block relative sm:h-48 h-20 rounded overflow-hidden">
+                                <img alt="ecommerce" class="object-cover object-center w-auto h-full block" src="githu.png">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- CONTACT -->
+        <div class="container mx-auto contact sm:pl-60 sm:pr-60 pt-12 mb-32 px-6 py-8" id="contact">
+            <div class="contact-subheading text-center text-1xl mb-4 text-[#58E5C6]">What's Next?</div>
+            <!-- <div class="vr  inline-block mb-2 mr-4" id="vrdisp"></div> -->
+            <div class="contact-heading text-3xl font-extrabold text-[#CCD7F7] text-center ">GET IN TOUCH!</div>
+            <!-- <div class="vr inline-block mb-2 ml-4" id="vrdisp"></div> -->
+            <div class="contact-description text-lg text-[#8893B1] text-center sm:mx-48 mt-8">Although I’m not currently
+                looking for any new opportunities, my inbox is always open. Whether you have a question or just want to say
+                hi, I’ll try my best to get back to you!</div>
+            <div class="flex mt-8">
+                <a href="mailto: yashvardhann743@gmail.com"
+                    class="bg-[#0B192E] hover:bg-[#1D4652] text-[#65FFDB] font-semibold py-2 rounded-md border-2 border-[#65FFDB] px-16 mx-auto ">
+                    Contact
+                </a>
+            </div>
+        </div>
+        <div class="footer-links-container flex flex-row justify-center">
+            <a href="https://github.com/yashvardhanJadhav" target=”_blank”><svg class="links-items h-6 w-6 mx-2"
+                    xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="#949FBF"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github">
+                    <title>GitHub</title>
+                    <path
+                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                    </path>
+                </svg>
+            </a>
+            <a href="https://www.instagram.com/yashvardhan_jadhav/?hl=en" target=”_blank”>
+                <svg class="links-items h-6 w-6 mx-2" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24"
+                    fill="none" stroke="#949FBF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-instagram">
+                    <title>Instagram</title>
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+            </a>
+            <a href="https://twitter.com/yashvardhann743" target=”_blank”>
+                <svg class="links-items h-6 w-6 mx-2" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24"
+                    fill="none" stroke="#949FBF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-twitter">
+                    <title>Twitter</title>
+                    <path
+                        d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                    </path>
+                </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/yashvardhan-jadhav-319621200/" target=”_blank”><svg
+                    class="links-items h-6 w-6 mx-2" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24"
+                    fill="none" stroke="#949FBF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-linkedin">
+                    <title>LinkedIn</title>
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+            </a>
+        </div>
+        <div class="text-[#A0AAC8] text-center my-8">©Yashvardhan Jadhav</div>
+    </body>
+    <script>
+        var prevScrollpos = window.pageYOffset;
+        window.onscroll = function () {
+            var currentScrollPos = window.pageYOffset;
+            if (prevScrollpos > currentScrollPos) {
+                document.getElementById("navbar").style.top = "0";
+            } else {
+                document.getElementById("navbar").style.top = "-100px";
+            }
+            if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+                document.getElementById("navbar").style.boxShadow  = "0px 10px 30px -10px rgba(2,12,27,0.7)" ;
+            } else {
+                document.getElementById("navbar").style.boxShadow = "0 0 0 0";
+            }
+            prevScrollpos = currentScrollPos;
+        }
+        
+    </script>
+
+    </html>
